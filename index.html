@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rwanda Explorer – Tourism &amp; Translation Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <!-- Responsive nav with a mobile hamburger toggle (controlled by script.js) -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Rwanda<span>Explorer</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#attractions">Attractions</a>
+        <a href="#translation">Translation</a>
+        <a href="#team">Team</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ 1. HOME / HERO SECTION ============ -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1>Discover Rwanda</h1>
+      <p>Explore Rwanda's attractions, culture, and experiences — all in one place.</p>
+      <div class="hero-buttons">
+        <!-- Smooth scroll buttons handled by JavaScript -->
+        <button class="btn btn-primary" data-scroll="attractions">Explore Attractions</button>
+        <button class="btn btn-outline" data-scroll="translation">Translation Assistant</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. ABOUT THE PROJECT ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Rwanda Explorer</h2>
+      <div class="about-box">
+        <p>
+          Rwanda Explorer is a simple tourism assistant concept designed to help
+          visitors discover attractions in Rwanda and, in the future, provide
+          AI-powered assistance and translation support.
+        </p>
+        <p>
+          The long-term idea is a digital assistant that helps tourists find
+          suitable destinations, understand the places they visit, and
+          communicate across language barriers.
+        </p>
+        <p class="note">
+          Note: This is a prototype developed as part of a university web
+          development assignment. It is a frontend-only demo and does not
+          include a real AI system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. ATTRACTIONS SECTION ============ -->
+  <section class="section section-alt" id="attractions">
+    <div class="container">
+      <h2 class="section-title">Popular Attractions</h2>
+      <p class="section-subtitle">A selection of must-visit destinations across Rwanda.</p>
+
+      <div class="card-grid" id="attractionGrid">
+        <!-- Cards are written in HTML so the structure is easy to explain -->
+
+        <article class="card">
+          <div class="card-flag"></div>
+          <h3>Volcanoes National Park</h3>
+          <p>
+            Home to endangered mountain gorillas and the Virunga mountains.
+            Gorilla trekking through bamboo forest is Rwanda's most famous
+            experience.
+          </p>
+          <button class="btn btn-small learn-more"
+                  data-title="Volcanoes National Park"
+                  data-info="Volcanoes National Park protects five of the Virunga volcanoes and is one of the best places in the world to see mountain gorillas in the wild. Visitors take guided treks through the forest to spend one hour with a habituated gorilla family. The park is also where the famous researcher Dian Fossey carried out her work.">
+            Learn More
+          </button>
+        </article>
+
+        <article class="card">
+          <div class="card-flag"></div>
+          <h3>Nyungwe National Park</h3>
+          <p>
+            A lush tropical rainforest with incredible biodiversity, famous for
+            its canopy walkway suspended high above the trees.
+          </p>
+          <button class="btn btn-small learn-more"
+                  data-title="Nyungwe National Park"
+                  data-info="Nyungwe is one of Africa's oldest rainforests, home to over 1000 plant species, hundreds of bird species, and 13 primate species. Its highlight is the canopy walk — a suspension bridge about 50 metres above the forest floor. Chimpanzee tracking and guided nature walks are also popular.">
+            Learn More
+          </button>
+        </article>
+
+        <article class="card">
+          <div class="card-flag"></div>
+          <h3>Akagera National Park</h3>
+          <p>
+            Savannah landscapes, lakes, and wildlife safaris — the only park in
+            Rwanda where you can see the Big Five.
+          </p>
+          <button class="btn btn-small learn-more"
+                  data-title="Akagera National Park"
+                  data-info="Akagera is Rwanda's savannah park in the east, filled with open grasslands, wetlands, and lakes. Following successful reintroductions, visitors can now see lions and rhinos alongside elephants, buffalo, and leopards — the Big Five. Game drives by day and boat trips on Lake Ihema are popular activities.">
+            Learn More
+          </button>
+        </article>
+
+        <article class="card">
+          <div class="card-flag"></div>
+          <h3>Kigali</h3>
+          <p>
+            Rwanda's clean, vibrant capital — full of culture, museums, local
+            markets, and modern city life.
+          </p>
+          <button class="btn btn-small learn-more"
+                  data-title="Kigali"
+                  data-info="Kigali is known as one of Africa's cleanest and safest capitals. Must-see spots include the Kigali Genocide Memorial, the Niyo Arts Gallery, local craft markets, and a growing food and coffee scene. It is a great starting point before heading out to the national parks.">
+            Learn More
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. TRANSLATION ASSISTANT (DEMO) ============ -->
+  <section class="section" id="translation">
+    <div class="container narrow">
+      <h2 class="section-title">Translation Assistant</h2>
+      <p class="section-subtitle">
+        Need help communicating? Try a basic translation.
+      </p>
+
+      <!-- Small demo label so viewers understand it is not real AI -->
+      <p class="demo-badge">Prototype / Demo — not a real AI translation system</p>
+
+      <div class="translator">
+        <label for="sourceText">Text to translate</label>
+        <textarea id="sourceText" rows="3" placeholder="Type a phrase, e.g. Hello"></textarea>
+
+        <div class="translator-controls">
+          <div class="control-group">
+            <label for="sourceLang">From</label>
+            <select id="sourceLang">
+              <option value="en">English</option>
+              <option value="rw">Kinyarwanda</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="targetLang">To</label>
+            <select id="targetLang">
+              <option value="rw">Kinyarwanda</option>
+              <option value="en">English</option>
+              <option value="fr">French</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="translateBtn">Translate</button>
+
+        <label for="resultBox" class="result-label">Result</label>
+        <div class="result-box" id="resultBox">
+          Your translation will appear here.
+        </div>
+
+        <p class="demo-note">
+          This demo uses a small list of predefined phrases. Example:
+          "Hello" → "Muraho", "Thank you" → "Murakoze".
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. WHY THIS MATTERS ============ -->
+  <section class="section section-alt" id="why">
+    <div class="container">
+      <h2 class="section-title">Why This Matters</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">1</div>
+          <h3>Discover</h3>
+          <p>Find interesting places and attractions across Rwanda.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">2</div>
+          <h3>Understand</h3>
+          <p>Learn about Rwanda's culture, nature, and destinations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">3</div>
+          <h3>Communicate</h3>
+          <p>A future AI assistant could help tourists overcome language barriers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. ABOUT THE TEAM ============ -->
+  <section class="section" id="team">
+    <div class="container">
+      <h2 class="section-title">About the Team</h2>
+      <p class="section-subtitle">GROUP 16</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="avatar">NJ</div>
+          <h3>NGENDahimana Josue</h3>
+          <p class="reg">Reg. No: 225074358</p>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar">NJ</div>
+          <h3>Niyibizi Janvier</h3>
+          <p class="reg">Reg. No: 225043592</p>
+        </div>
+
+        <div class="team-card">
+          <div class="avatar">ND</div>
+          <h3>Niyomugenga Daniel</h3>
+          <p class="reg">Reg. No: 225034400</p>
+        </div>
+      </div>
+
+      <div class="assignment-info">
+        <p><strong>Web Development Assignment #1</strong></p>
+        <p>Technologies: HTML • CSS • JavaScript</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-title">Rwanda Explorer</p>
+      <p class="footer-tag">Discover Rwanda. Experience more.</p>
+      <p class="footer-meta">Group 16</p>
+      <p class="footer-meta">HTML • CSS • JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- ============ SIMPLE MODAL FOR "LEARN MORE" ============ -->
+  <!-- Hidden by default; shown/hidden by JavaScript -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h3 id="modalTitle">Attraction</h3>
+      <p id="modalText">Information about this attraction.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

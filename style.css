@@ -1,0 +1,556 @@
+/* =========================================================
+   Rwanda Explorer — style.css
+   Color palette inspired by the Rwandan flag:
+   blue (sky), yellow (sun), green (nature), white (peace)
+   ========================================================= */
+
+/* ---------- 1. BASIC RESET & VARIABLES ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue:   #00a1de;   /* flag blue */
+  --yellow: #fad200;   /* flag sun yellow */
+  --green:  #097c3b;   /* flag green */
+  --dark:   #1b2a38;   /* headings */
+  --text:   #44546a;   /* body text */
+  --bg:     #ffffff;
+  --bg-alt: #f4f8fb;   /* alternating section background */
+  --border: #e2e9f0;
+}
+
+html {
+  scroll-behavior: smooth;  /* makes anchor links scroll smoothly */
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; }
+
+/* ---------- 2. LAYOUT HELPERS ---------- */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.container.narrow {
+  width: min(760px, 92%);
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.9rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 35px;
+  color: var(--text);
+}
+
+/* ---------- 3. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 12px 26px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #06612e;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+.btn-small {
+  background: #fff;
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 8px 18px;
+  font-size: 0.92rem;
+  border-radius: 5px;
+}
+
+.btn-small:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------- 4. NAVIGATION ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.logo span { color: var(--green); }
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover { color: var(--green); }
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+
+/* ---------- 5. HERO SECTION ---------- */
+.hero {
+  background: var(--blue);
+  background: linear-gradient(180deg, #0a7fb5 0%, var(--blue) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 110px 0;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 0 auto 32px;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- 6. ABOUT SECTION ---------- */
+.about-box {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--yellow);
+  border-radius: 8px;
+  padding: 30px 34px;
+}
+
+.about-box p { margin-bottom: 16px; }
+.about-box p:last-child { margin-bottom: 0; }
+
+.note {
+  font-size: 0.93rem;
+  color: #7a6a20;
+  background: #fff9dd;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+/* ---------- 7. ATTRACTION CARDS ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Small decorative color bar on each card (flag-inspired) */
+.card-flag {
+  height: 5px;
+  width: 55px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--blue) 33%, var(--yellow) 33% 66%, var(--green) 66%);
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  color: var(--dark);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;   /* keeps buttons aligned at the bottom of each card */
+}
+
+/* ---------- 8. TRANSLATION ASSISTANT ---------- */
+.demo-badge {
+  text-align: center;
+  background: #fff4e0;
+  color: #9a6a00;
+  border: 1px dashed #e6b800;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  margin-bottom: 26px;
+}
+
+.translator {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.translator label {
+  display: block;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.translator textarea,
+.translator select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fbfdff;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.translator textarea:focus,
+.translator select:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.translator-controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  flex: 1;
+  min-width: 160px;
+}
+
+.result-label { margin-top: 6px; }
+
+.result-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+  padding: 16px;
+  min-height: 64px;
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.result-box.empty {
+  border-left-color: var(--yellow);
+  color: #9a6a00;
+  font-size: 0.95rem;
+}
+
+.demo-note {
+  font-size: 0.87rem;
+  color: #7d8a99;
+}
+
+/* ---------- 9. WHY THIS MATTERS ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.feature-icon {
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.feature-card h3 {
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+}
+
+/* ---------- 10. TEAM SECTION ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 16px;
+}
+
+.team-card h3 {
+  color: var(--dark);
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.reg {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.assignment-info {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.assignment-info p { margin-bottom: 6px; }
+.assignment-info strong { color: var(--dark); }
+
+/* ---------- 11. FOOTER ---------- */
+.footer {
+  background: var(--dark);
+  color: #cfd8e3;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.footer-tag {
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.footer-meta {
+  font-size: 0.9rem;
+  color: #93a3b5;
+}
+
+/* ---------- 12. MODAL (for Learn More) ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;              /* hidden until JavaScript shows it */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 200;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  max-width: 520px;
+  width: 100%;
+  padding: 34px 30px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.modal-close:hover { color: var(--dark); }
+
+.modal h3 {
+  color: var(--dark);
+  margin-bottom: 12px;
+  padding-right: 20px;
+}
+
+/* ---------- 13. RESPONSIVE / MEDIA QUERIES ---------- */
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+  .section { padding: 55px 0; }
+  .hero { padding: 80px 0; }
+
+  /* Mobile navigation: hide links, show hamburger */
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    display: none;              /* hidden until toggled */
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links a {
+    padding: 14px 6%;
+    border-top: 1px solid var(--border);
+  }
+
+  .translator { padding: 22px; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section-title { font-size: 1.5rem; }
+
+  .hero-buttons .btn { width: 100%; }
+
+  .about-box { padding: 22px 20px; }
+}
